@@ -1,4 +1,4 @@
-import SuccessPageImage from "../assets/Success.gif"
+import SuccessPageImage from "../assets/Success.gif";
 
 const LoginSuccessPage = () => {
   return (
