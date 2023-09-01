@@ -12,8 +12,7 @@ const HomePage = () => {
           borderRadius: "10px",
           textAlign: "center",
           padding: "10px",
-          boxShadow: "0 0 10px 0px #000000",
-          marginTop: "10",
+          boxShadow: "0 0 10px 0px #000000", 
           marginBottom: "10",
         }}
       >

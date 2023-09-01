@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import { useState,   } from "react";
 import { app } from "../firebaseConfig";
 import {
   createUserWithEmailAndPassword,
@@ -12,6 +11,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);  
 
   const navigate = useNavigate();
 
@@ -44,10 +44,16 @@ const Signup = () => {
           navigate("/login");
         }
       } catch (error) {
-        console.error(error);
+        setError(error.message); 
+        setTimeout(() => {
+          setError(null);
+        }, 3000);
       }
     } else {
-      alert("Passwords don't match.");
+      setError("Passwords don't match.");  
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
     }
   };
 
@@ -71,7 +77,7 @@ const Signup = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <br></br>
+      <br />
       <input
         style={inputStyle}
         type="password"
@@ -79,7 +85,7 @@ const Signup = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <br></br>
+      <br />
       <input
         style={inputStyle}
         type="password"
@@ -87,7 +93,8 @@ const Signup = () => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <br></br>
+      <br />
+      {error && <p>{error}</p>} 
       <button onClick={handleSignup}>Signup</button>
     </div>
   );
