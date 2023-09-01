@@ -25,21 +25,47 @@ const Login = () => {
     }
   };
 
+  const inputStyle = {
+    paddingLeft: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "60%",
+    height: "30px",
+    borderRadius: "10px",
+    border: "1px solid #000",
+    margin: "0 auto",
+  };
+
   return (
-    <div>
+    <div
+      style={{
+        width: "70vh",
+        height: "40vh",
+        margin: "auto",
+        borderRadius: "10px",
+        textAlign: "center",
+        padding: "10px",
+        boxShadow: "0 0 10px 0px #000000",
+      }}
+    >
       <h2>Login</h2>
       <input
+        style={inputStyle}
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      <br></br>
       <input
+        style={inputStyle}
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      <br></br>
       <button onClick={handleLogin}>Login</button>
     </div>
   );
