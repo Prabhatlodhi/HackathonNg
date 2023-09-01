@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { app } from "../firebaseConfig";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"; 
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   const handleLogin = async () => {
     try {
       const auth = getAuth(app);
@@ -17,6 +18,7 @@ const Login = () => {
         auth.signOut();
       } else {
         alert("Login successful!");
+        navigate("/loginSuccess");
       }
     } catch (error) {
       console.error(error);
