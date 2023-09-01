@@ -2,10 +2,10 @@ import SuccessPageImage from "../assets/Success.gif";
 
 const LoginSuccessPage = () => {
   return (
-    <div style={{backgroundColor:"white !important"}} >
-        <img src={SuccessPageImage} alt="SuccessPageImage" />
+    <div >
+      <img src={SuccessPageImage} alt="SuccessPageImage" style={{ borderRadius: "50px" }} />
     </div>
-  )
-}
+  );
+};
 
-export default LoginSuccessPage
+export default LoginSuccessPage;
